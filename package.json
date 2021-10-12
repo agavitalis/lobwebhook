@@ -1,0 +1,39 @@
+{
+  "name": "lobwebhook",
+  "version": "1.0.0",
+  "description": "A sample node project, demonstrating the use of Lob Webhooks for emailing and marketing ",
+  "main": "./src/index.js",
+  "scripts": {
+    "start-dev": "babel-node ./src/index.js",
+    "dev": "nodemon --exec npm run start-dev",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/agavitalis/lobwebhook.git"
+  },
+  "keywords": [
+    "Lob",
+    "Email",
+    "Marketing",
+    "Vitalis"
+  ],
+  "author": "Ogbonna Vitalis",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/agavitalis/lobwebhook/issues"
+  },
+  "homepage": "https://github.com/agavitalis/lobwebhook#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "hbs": "^4.1.2",
+    "mongoose": "^6.0.10"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.15.7",
+    "@babel/core": "^7.15.8",
+    "@babel/node": "^7.15.8",
+    "@babel/preset-env": "^7.15.8"
+  }
+}
