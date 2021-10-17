@@ -1,15 +1,14 @@
 const express = require("express");
 const router = express.Router();
-const {fileUpload} = require("../services/Uploads");
 
 /*
 |-------------------------------------------------------------------------------
 | Controller Import
 |-------------------------------------------------------------------------------
 */
-const createPDFController = require("../controllers/createPDFController");
+const createLetterController = require("../controllers/letter.controller");
 const makeOCRController = require("../controllers/makeOCRController");
-const searchController = require("../controllers/searchController");
+const searchController = require("../controllers/webhook.controller");
 
 /*
 |-------------------------------------------------------------------------------
@@ -18,12 +17,13 @@ const searchController = require("../controllers/searchController");
 */
 
 router.route("/")
-    .get(createPDFController.createPDF)
-    .post(fileUpload.single("document"),createPDFController.createPDFPost)
+    .get(createLetterController.createLetter)
+    .post(createLetterController.createLetterPost)
+  
 
 router.route("/makeOCR")
     .get(makeOCRController.makeOCR)
-    .post(fileUpload.single("document"),makeOCRController.makeOCRPost);
+   
 
 router.route("/search")
     .get(searchController.search)
