@@ -1,5 +1,5 @@
 
-const Lob = require('lob')('YOUR API KEY');
+const Lob = require('lob')('test_e714c6edeb9abbf049924858d337c93b567');
 /*
  * GET / route to show the createLetter form.
  */
@@ -11,7 +11,7 @@ function createLetter(req, res) {
 
 
 /*
- * GET / route to process the letters.
+ * POST / route to process the letters.
  */
 function createLetterPost(req, res) {
 
@@ -81,9 +81,6 @@ function getALetter(req, res) {
     });
       
 }
-
-
-
 
 //export all the functions
 module.exports = { createLetter, createLetterPost, getLetters, getALetter };

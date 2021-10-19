@@ -12,7 +12,7 @@ const searchController = require("../controllers/webhook.controller");
 
 /*
 |-------------------------------------------------------------------------------
-| Route Declearation
+| Route Declaration
 |-------------------------------------------------------------------------------
 */
 
