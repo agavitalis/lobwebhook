@@ -7,7 +7,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<meta name="description" content="Adobe Document Service API tutorial by Ogbonna Vitalis.">
 	<meta name="author" content="Vitalis">
-	<title>Adobe Document Service API | Tutorials</title>
+	<title>Lob Webhooks & API | Tutorials</title>
 
 	<!-- Favicons-->
 	<link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
@@ -48,9 +48,7 @@
 	<nav>
 		<ul class="cd-primary-nav">
 			<li><a href="/" class="animated_link">Home</a></li>
-			<li><a href="/makeOCR" class="animated_link">OCR</a></li>
-			<li><a href="/search" class="animated_link">Search</a></li>
-			
+			<li><a href="/getLetters" class="animated_link">Letters</a></li>
 		</ul>
 	</nav>
 	<!-- /menu -->
@@ -59,17 +57,17 @@
 		<div class="row row-height">
 			<div class="col-lg-6 content-left">
 				<div class="content-left-wrapper">
-					<a href="index.html" id="logo"><img src="img/logo.png" alt="" width="49" height="35"></a>
+					<a href="/" id="logo"><img src="img/lob.png" alt="" width="49" height="35"></a>
 
 					<!-- /social -->
 					<div>
-						<figure><img src="img/info_graphic_3.svg" alt="" class="img-fluid"></figure>
-						<h2>Adobe Document Services API</h2>
+						<figure><img src="img/sent.svg" style="height: 15em;" alt="" class="img-fluid"></figure>
+						<h2>Lob Webhooks & API</h2>
 						<p>Tation argumentum et usu, dicit viderer evertitur te has. Eu dictas concludaturque usu,
 							facete detracto patrioque an per, lucilius pertinacia eu vel. Adhuc invidunt duo ex. Eu
 							tantas dolorum ullamcorper qui.</p>
-						<a href="#" class="btn_1 rounded" target="_parent">Go to Documentation</a>
-						<a href="#start" class="btn_1 rounded mobile_btn">Go to Docs!</a>
+						<a href="https://docs.lob.com/" class="btn_1 rounded" target="_parent">Go to Documentation</a>
+						<a href="https://docs.lob.com/" class="btn_1 rounded mobile_btn">Go to Docs!</a>
 					</div>
 					<div class="copy">© 2021 agavitalis</div>
 				</div>
@@ -79,59 +77,22 @@
 
 			<div class="col-lg-6 content-right" id="start" style="height:auto">
 				<div class="row">
-					<div id="wizard_container" class="col-md-12">
-						<div id="top-wizard">
-							<!-- /top-wizard -->
-							<form method="POST" action="/search">
-
-
-								<!-- /step-->
-								<div class="submit step">
-									<h3 class="main_question"><strong>1/1</strong>Search</h3>
-
-									<div class="form-group add_top_30">
-										<label>Additional information</label>
-										<textarea name="searchString" class="form-control required" style="height:70px;"
-											placeholder="Type your search params here..."></textarea>
-									</div>
-								</div>
-
-
-
-								{{#if response}}
-								<div class="alert alert-primary alert-wth-icon alert-dismissible fade show"
-									role="alert">
-									<span class="alert-icon-wrap"><i class="fa fa-info"></i></span>{{response}}
-									<button type="button" class="close" data-dismiss="alert" aria-label="Close">
-										<span aria-hidden="true">&times;</span>
-									</button>
-								</div>
-								{{/if}}
-								<!-- /middle-wizard -->
-								<div id="bottom-wizard">
-									<button type="submit" class="submit">Search</button>
-								</div>
-								<!-- /bottom-wizard -->
-							</form>
-						</div>
-						<!-- /Wizard container -->
-					</div>
+					<h1>Letters</h1>
 					<div class="row">
-						 {{#each documents}}
+						{{#each letters}}
 						<div class="col-md-6 mb-2">
 							<div class="card" style="width: 18rem;">
-								<img class="card-img-top"
-									src="./img/pdf.png"
-									alt="Card image cap">
+								<img class="card-img-top" src="./img/envelop.png" alt="Card image cap">
 								<div class="card-body">
-									<h5 class="card-title">{{documentName}}</h5>
-									<p class="card-text">{{documentDescription}}</p>
-									<a href="/download/{{_id}}" class="btn btn-primary">Download</a>
+									<h5 class="card-title">{{description}}</h5>
+									<p class="card-text">{{to.name}}</p>
+									<a href="/getLetter/{{id}}" class="btn btn-info btn-sm">Open Letter</a>
+									<a href="{{url}}" class="btn btn-primary btn-sm">Download as PDF</a>
 								</div>
 							</div>
 						</div>
 						{{/each}}
-						
+
 					</div>
 
 				</div>

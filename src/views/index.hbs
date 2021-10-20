@@ -48,9 +48,7 @@
 	<nav>
 		<ul class="cd-primary-nav">
 			<li><a href="/" class="animated_link">Home</a></li>
-			<li><a href="/makeOCR" class="animated_link">OCR</a></li>
-			<li><a href="/search" class="animated_link">Search</a></li>
-			
+			<li><a href="/getLetters" class="animated_link">Letters</a></li>
 		</ul>
 	</nav>
 	<!-- /menu -->
@@ -59,7 +57,7 @@
 		<div class="row row-height">
 			<div class="col-lg-6 content-left">
 				<div class="content-left-wrapper">
-					<a href="index.html" id="logo"><img src="img/logo.png" alt="" width="49" height="35"></a>
+					<a href="/" id="logo"><img src="img/lob.png" alt="" width="49" height="35"></a>
 
 					<!-- /social -->
 					<div>
@@ -68,8 +66,8 @@
 						<p>Tation argumentum et usu, dicit viderer evertitur te has. Eu dictas concludaturque usu,
 							facete detracto patrioque an per, lucilius pertinacia eu vel. Adhuc invidunt duo ex. Eu
 							tantas dolorum ullamcorper qui.</p>
-						<a href="#" class="btn_1 rounded" target="_parent">Go to Documentation</a>
-						<a href="#start" class="btn_1 rounded mobile_btn">Go to Docs!</a>
+						<a href="https://docs.lob.com/" class="btn_1 rounded" target="_parent">Go to Documentation</a>
+						<a href="https://docs.lob.com/" class="btn_1 rounded mobile_btn">Go to Docs!</a>
 					</div>
 					<div class="copy">© 2021 agavitalis</div>
 				</div>
@@ -82,10 +80,9 @@
 					<div id="top-wizard">
 
 
-						<!-- /top-wizard -->
+						<!-- /form -->
 						<form  method="POST" action="/" enctype="multipart/form-data">
-							<input id="website" name="website" type="text" value="">
-							<!-- Leave for security protection, read docs for details -->
+							
 							<div id="middle-wizard">
 
 								<!-- /step-->
@@ -93,21 +90,12 @@
 									<h3 class="main_question"><strong>1/1</strong>Send letter to your buddy!</h3>
 
 									<div class="form-group add_top_30">
-										<label>Buddy house address<br>
-											
-										</label>
-										<div class="fileupload">
-											<input type="text" name="document"  class="form-control required" />
-										</div>
-									</div>
-									<div class="form-group add_top_30">
 										<label>Tell your story here</label>
-										<textarea name="additional_message" class="form-control required"
-											style="height:70px;" placeholder="Type your descriptions here..."
+										<textarea name="story" class="form-control required"
+											style="height:150px;" placeholder="Tell your story here..."
 										></textarea>
 									</div>
 								</div>
-
 
 							</div>
 							{{#if response}}

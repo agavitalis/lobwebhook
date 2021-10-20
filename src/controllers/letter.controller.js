@@ -1,5 +1,6 @@
 
 const Lob = require('lob')('test_e714c6edeb9abbf049924858d337c93b567');
+import Letter from "../models/letter"
 /*
  * GET / route to show the createLetter form.
  */
@@ -15,6 +16,7 @@ function createLetter(req, res) {
  */
 function createLetterPost(req, res) {
 
+    const myStory = req.body.story
     // Create the address
     Lob.addresses.create({
         name: 'Robin Joseph',
@@ -40,18 +42,17 @@ function createLetterPost(req, res) {
                     address_zip: '60012',
                     address_country: 'US'
                 },
-                file: '<html style="padding-top: 3in; margin: .5in;">HTML Letter for {{name}}</html>',
+                file: '<html style="padding-top: 3in; margin: .5in;">{{story}}</html>',
                 merge_variables: {
-                    name: 'Harry'
+                    story: myStory
                 },
                 color: true
             });
         })
         .then((letter) => {
-            console.log('The Lob API responded with this letter object: ', letter);
-            //catch any response on the url
-            let response = req.query.response
-            res.render('index', { response })
+            const { id, ...otherProperties } = letter;
+            Letter.create({ letterId: id, ...otherProperties })
+            res.redirect('/?response=Your letter was successfully sent')
         })
         .catch((err) => {
             console.log(err);
@@ -65,21 +66,23 @@ function createLetterPost(req, res) {
  */
 function getLetters(req, res) {
 
-    Lob.letters.list({limit: 2}, function (err, res) {
-        console.log(err, res);
+    Lob.letters.list({ limit: 50 }, function (err, response) {
+        const letters = response.data
+        res.render('letters', { letters })
     });
-   
+
 }
 
 /*
  * GET / route to get a letter.
  */
 function getALetter(req, res) {
-
-    Lob.letters.retrieve('ltr_4868c3b754655f90', function (err, res) {
-        console.log(err, res);
+    const letterId = req.params.letterId
+    Lob.letters.retrieve(letterId, function (err, response) {
+        const letter = response
+        res.render('letter', { letter })
     });
-      
+
 }
 
 //export all the functions

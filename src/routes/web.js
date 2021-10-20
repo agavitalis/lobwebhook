@@ -6,9 +6,8 @@ const router = express.Router();
 | Controller Import
 |-------------------------------------------------------------------------------
 */
-const createLetterController = require("../controllers/letter.controller");
-const makeOCRController = require("../controllers/makeOCRController");
-const searchController = require("../controllers/webhook.controller");
+const letterController = require("../controllers/letter.controller");
+const webhookController = require("../controllers/webhook.controller");
 
 /*
 |-------------------------------------------------------------------------------
@@ -17,20 +16,19 @@ const searchController = require("../controllers/webhook.controller");
 */
 
 router.route("/")
-    .get(createLetterController.createLetter)
-    .post(createLetterController.createLetterPost)
+    .get(letterController.createLetter)
+    .post(letterController.createLetterPost)
   
+router.route("/getLetter/:letterId")
+    .get(letterController.getALetter)
 
-router.route("/makeOCR")
-    .get(makeOCRController.makeOCR)
+router.route("/getLetters")
+    .get(letterController.getLetters)
+
+router.route("/processWebhookEvent")
+    .post(webhookController.processWebhookEventPost);
    
 
-router.route("/search")
-    .get(searchController.search)
-    .post(searchController.searchPost);
-   
-router.route("/download/:documentId")
-    .get(searchController.downloadPDF)
     
 /*
 |-------------------------------------------------------------------------------
