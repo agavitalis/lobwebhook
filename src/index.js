@@ -24,7 +24,7 @@ const routes = require("./routes/web.js");
 app.use(routes);
 
 app.listen(PORT,(error) => {
-  console.log(`Speak Lord, your servant is listening to port ${PORT}`);
+  console.log(`Speak, I am listening on port ${PORT}`);
 
   if(error){
     console.log(error);

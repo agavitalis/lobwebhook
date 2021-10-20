@@ -6,6 +6,12 @@
   "scripts": {
     "start-dev": "babel-node ./src/index.js",
     "dev": "nodemon --exec npm run start-dev",
+
+    "start": "npm run build && node ./build/index.js",
+    "build": "npm run clean && npm run build-babel",
+    "clean": "npx rimraf /F /Q build",
+    "build-babel": "babel src --out-dir build --source-maps inline --copy-files",
+    
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
