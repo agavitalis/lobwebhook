@@ -38,6 +38,11 @@ var LetterSchema = new Schema(
 		send_date: { type: Date, default: null },
 		object: { type: String, default: null },
 
+		//for event tracking
+		reference_id: { type: String, default: null },
+		event_id:  {  type: String, default: null },
+		event_type:  { type: Schema.Types.Mixed, default: null }
+
 	},
 	{ timestamps: true }
 );

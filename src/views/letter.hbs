@@ -79,15 +79,15 @@
                                             <small>Country: {{letter.to.address_country}}</small>
 
                                         </a>
-                                      
+
                                     </div>
 
                                 </div>
                                 <div class="col-md-6">
                                     <div class="list-group">
-                                       
+
                                         <a href="#" class="list-group-item list-group-item-action">
-                                             <div class="d-flex w-100 justify-content-between">
+                                            <div class="d-flex w-100 justify-content-between">
                                                 <h5 class="mb-1">From: {{letter.from.name}}</h5>
                                                 <small>{{letter.from.date_created}}</small>
                                             </div>
@@ -100,7 +100,7 @@
                                             <small>Zip: {{letter.from.address_zip}}</small>
                                             <small>Country: {{letter.from.address_country}}</small>
                                         </a>
-                                        
+
                                     </div>
 
                                 </div>
@@ -110,6 +110,14 @@
                             <hr class="my-4">
                             <p class="mb-1">Carrier: {{letter.carrier}}.</p>
                             <p>Carrier Type: {{letter.mail_type}}.</p>
+                            <hr class="my-4">
+                            <p>Status:
+                                {{#if letter.event_type.id}}
+                                {{letter.event_type.id}}
+                                {{else}}
+                                No event yet
+                                {{/if}}
+                            </p>
                             <a class="btn btn-primary btn-lg" href="/getLetters" role="button">Back</a>
                         </div>
                     </div>
