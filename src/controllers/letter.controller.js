@@ -1,5 +1,6 @@
-
-const Lob = require('lob')('test_e714c6edeb9abbf049924858d337c93b567');
+import dotenv from 'dotenv';
+dotenv.config();
+const Lob = require('lob')(process.env.LOB_API_KEY);
 import Letter from "../models/letter"
 /*
  * GET / route to show the createLetter form.
