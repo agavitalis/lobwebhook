@@ -19,8 +19,10 @@ npm install
 #### Configure Lob Credentials
 
 - Update `Lob API Keys` with your Lob API Keys.
-- Update  `Database Credentials` with your correct database Credentials
 These credentials should be added in the `.env file` at the root directory of this application.
+
+- Update  `Database Credentials` in the `index.js` file with your correct database Credentials if necessary
+
 
 ### Run server
 
